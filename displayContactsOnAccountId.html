@@ -1,0 +1,39 @@
+<template>
+    <!--Parent component-->
+     <lightning-card title="Display the Contacts based on AccountId the help of event in LWC" 
+                     custom-icon="custom:icon13">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered" 
+               border="1" 
+               cellspacing="0" 
+               cellpadding="0" 
+              
+               style="border-collapse:collapse;">
+
+             <thead>
+                 <tr>
+                     <th>Select</th>
+                     <th>Name</th>
+                     <th>Phone</th>
+                     <th>Industry</th>
+                     <th>Description</th>                   
+                 </tr>
+             </thead>
+                <template for:each={accData.data} for:item="accItem">
+                    <tr key={accItem.Id}>
+                        <td>
+                            <lightning-input type="radio" 
+                                             name="radioButtonSelect" 
+                                             value={accItem.Id} 
+                                             onchange={handleChangeRadio}>
+                            </lightning-input>
+                        </td>
+                        <td>{accItem.Name}</td>
+                        <td>{accItem.Phone}</td>
+                        <td>{accItem.Industry}</td>
+                        <td>{accItem.Description}</td>                    
+                    </tr>
+                </template>
+        </table>
+        <br/><br/>
+     </lightning-card> 
+</template>
